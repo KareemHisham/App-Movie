@@ -1,18 +1,12 @@
 <template>
   <div id="app">
-      <home />
-      <movie />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Home from '@/views/Home.vue';
-import Movie from '@/views/Movie.vue';
+
   export default {
-    components: {
-      Home,
-      Movie
-    }
 }
 </script>
 

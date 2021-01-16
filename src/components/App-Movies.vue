@@ -2,53 +2,25 @@
   <div id="movies">
     <div class="container">
       <div class="movies">
-        <div class="item">
+        <router-link :to='"/movie/" + index' class="item text-decoration-none" v-for="(movie, index) in movies" :key="index">
           <div class="movie-img">
-            <img src="../assets/2.png" alt="Movie-Name" />
-            <span>Series</span>
+            <img :src="movie.Poster" alt="Movie-Name" />
+            <span>{{movie.Type}}</span>
           </div>
           <div class="movie-details">
-            <div class="year">1990</div>
-            <h3 class="title">Movie Name</h3>
+            <div class="year">{{movie.Year}}</div>
+            <h3 class="title">{{movie.Title}}</h3>
           </div>
-        </div>
-        <div class="item">
-          <div class="movie-img">
-            <img src="../assets/2.png" alt="Movie-Name" />
-            <span>Series</span>
-          </div>
-          <div class="movie-details">
-            <div class="year">1990</div>
-            <h3 class="title">Movie Name</h3>
-          </div>
-        </div>
-        <div class="item">
-          <div class="movie-img">
-            <img src="../assets/2.png" alt="Movie-Name" />
-            <span>Series</span>
-          </div>
-          <div class="movie-details">
-            <div class="year">1990</div>
-            <h3 class="title">Movie Name</h3>
-          </div>
-        </div>
-        <div class="item">
-          <div class="movie-img">
-            <img src="../assets/2.png" alt="Movie-Name" />
-            <span>Series</span>
-          </div>
-          <div class="movie-details">
-            <div class="year">1990</div>
-            <h3 class="title">Movie Name</h3>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:['movies']
+};
 </script>
 
 <style scoped lang="scss">
@@ -61,6 +33,9 @@ export default {};
     .item {
       flex-basis: 48%;
       margin-bottom: 15px;
+      background: #14213d;
+      border-radius: 0px 0 10px 10px;
+      color: white;
       .movie-img {
         position: relative;
         img {
@@ -76,6 +51,9 @@ export default {};
           padding: 3px 10px;
           font-size: 20px;
         }
+      }
+      .movie-details {
+        padding: 10px 0px 0px 10px;
       }
     }
   }
